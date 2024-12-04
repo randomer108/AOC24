@@ -15,8 +15,6 @@ print(sum(prods))
 # 2
 mullDoDont= re.findall(r'mul\(\d+,\d+\)|do\(\)|don\'t\(\)',string)
 
-
-
 answer2 = 0
 On=True
 for command in mullDoDont:
