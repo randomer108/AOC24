@@ -10,7 +10,7 @@ def check(d):
     answer= int(re.findall(r'(\d*):',d)[0])
     numbers = re.sub(r'\d*: ','',d).split(' ')
     numbers = [int(x) for x in numbers]
-    options = list(product(['0', '1'], repeat=len(numbers)))
+    options = list(product(['0', '1','2'], repeat=len(numbers)))
 
     for Op in options:
         A=0
@@ -19,6 +19,10 @@ def check(d):
                 A=A+n
             if op =='1':
                 A=A*n
+            if op =='2':
+                A = str(A)
+                n = str(n)
+                A = int(A+n)
         if A ==answer:
             correct.append(answer)
             break
