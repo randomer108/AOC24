@@ -1,5 +1,6 @@
 import re
 import numpy as np
+from itertools import product
 
 data = list(open("./data/day7.txt"))
 correct = []
@@ -9,7 +10,7 @@ def check(d):
     answer= int(re.findall(r'(\d*):',d)[0])
     numbers = re.sub(r'\d*: ','',d).split(' ')
     numbers = [int(x) for x in numbers]
-    options = [list(format(i, f'0{len(numbers)}b')) for i in range(2**len(numbers))]
+    options = list(product(['0', '1'], repeat=len(numbers)))
 
     for Op in options:
         A=0
@@ -22,11 +23,14 @@ def check(d):
             correct.append(answer)
             break
 
-
 for d in data:
     check(d)
 
 print(sum(correct))
 
+
+
+
+    
 
 
